@@ -21,23 +21,17 @@ const useApi = () => {
 
   React.useEffect(() => {
     const postApi = async () => {
-      await axios({
-        method: "POST",
-        url: `https://sandbox-api.stuart.com/v2/jobs`,
-        responseType: "json",
-        data: data,
-        headers: {
-          Authorization: process.env["REACT_APP_BEARER_TOKEN"],
-          "content-type": "application/json"
-        }
-      })
-        .then((res: object | any) => {
-          setFeed(res.data);
-        })
-        .catch((err: string) => {
-          err = "Big Error"
-          console.log(err);
+      try {
+        return await axios.get("https://sandbox-api.stuart.com/v2/jobs", {
+          data: data,
+          headers: {
+            Authorization: process.env["REACT_APP_BEARER_TOKEN"],
+            "content-type": "application/json"
+          }
         });
+      } catch (e) {
+        console.log(e);
+      }
     };
     postApi();
   }, []);
