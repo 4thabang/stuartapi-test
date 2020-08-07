@@ -64,7 +64,7 @@ const App = () => {
           <p>Distance: {e.distance}m</p>
           <hr />
           <p>Pickup Status: {e.status}</p>
-          <button>Track Order</button>
+          <button onClick={onClick}>Track Order</button>
         </div>
       ))}
     </div>
