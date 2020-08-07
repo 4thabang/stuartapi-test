@@ -45,6 +45,10 @@ const App = () => {
                 
   const { isLoading, error, data } = useQuery('data', feed)
 
+  if(isLoading) {
+    return <span>Loading...</span>
+  }
+      
   console.log(data);
       
   return (
