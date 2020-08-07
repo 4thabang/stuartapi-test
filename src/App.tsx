@@ -12,7 +12,7 @@ const useApi = () => {
   const [feed, setFeed] = React.useState<any>({});
   const [loading, setLoading] = React.useState<any>(false);
 
-  const handleErrors = (res: object) => {
+  const handleErrors = (res: object | any) => {
     if (!res.ok) {
       throw Error(res.statusText);
     }
