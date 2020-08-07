@@ -4,9 +4,20 @@ import axios from "axios";
 import data from "./userData.json";
 import { useQuery } from "react-query";
 
+type ProcessEnv = {
+  [key: string]: string | undefined;
+};
+
 const useApi = () => {
   const [feed, setFeed] = React.useState<any>({});
   const [loading, setLoading] = React.useState<any>(false);
+
+  const handleErrors = (res: any) => {
+    if (!res.ok) {
+      throw Error(res.statusText);
+    }
+    return res;
+  };
 
   React.useEffect(() => {
     const postApi = async () => {
@@ -16,14 +27,12 @@ const useApi = () => {
         responseType: "json",
         data: data,
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJFUzI1NiJ9.eyJpc3MiOiJzdHVhcnQtYXBpIiwiaWF0IjoxNTk2NzQ2NTk1LCJqdGkiOiJmZWU1MjhjMS1lMzQ0LTRlNjMtYTg1OS04Zjk3OWJmOTUxMGQiLCJzcnQ6ZW52aXJvbm1lbnRzIjpbInNhbmRib3giXX0.Gzp41_EbSnlXu03iBDK1JNPK_4fwFUYL028WHOWyMYolBn7L7lYHGMyCU6XCltjEYPsQxgC63b75VQiXkNxYSw",
+          Authorization: process.env["REACT_APP_BEARER_TOKEN"],
           "content-type": "application/json"
         }
       })
         .then((res: any) => {
           setFeed(res.data);
-          // setLoading(true);
         })
         .catch((err: any) => {
           console.log(err);
