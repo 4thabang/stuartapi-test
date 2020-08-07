@@ -36,7 +36,7 @@ const useApi = () => {
 };
 
 const App = () => {
-  const { feed, loading } = useApi();
+  const { feed } = useApi();
 
   console.log(feed);
   return (
