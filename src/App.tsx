@@ -32,7 +32,7 @@ const useApi = () => {
     twain()
   }, []);
 
-  return { feed, loading };
+  return { feed };
 };
 
 const App = () => {
