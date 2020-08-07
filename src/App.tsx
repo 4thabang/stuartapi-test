@@ -31,7 +31,7 @@ const useApi = () => {
           "content-type": "application/json"
         }
       })
-        .then((res: any) => {
+        .then((res: object | any) => {
           setFeed(res.data);
         })
         .catch((err: any) => {
