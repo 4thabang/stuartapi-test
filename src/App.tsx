@@ -49,6 +49,10 @@ const App = () => {
     return <span>Loading...</span>
   }
       
+  if(error) {
+    return <span>Error: `${error?.message}`</span>
+  }
+      
   console.log(data);
       
   return (
