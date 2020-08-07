@@ -42,8 +42,11 @@ const App = () => {
     e.preventDefault()
     window.open(feed.map((e: any) => e.deliveries.tracking_url)
   }
+                
+  const { isLoading, error, data } = useQuery('data', feed)
 
-  console.log(feed);
+  console.log(data);
+      
   return (
     <div className="App">
       <h1>Stuart API</h1>
