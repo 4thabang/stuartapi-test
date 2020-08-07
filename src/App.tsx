@@ -37,6 +37,11 @@ const useApi = () => {
 
 const App = () => {
   const { feed } = useApi();
+              
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    window.open()
+  }
 
   console.log(feed);
   return (
