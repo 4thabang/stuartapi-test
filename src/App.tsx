@@ -29,6 +29,7 @@ const useApi = () => {
       const i = await postApi()
       setFeed(i?.data)
     }
+    twain()
   }, []);
 
   return { feed, loading };
