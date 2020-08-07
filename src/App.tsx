@@ -34,7 +34,7 @@ const useApi = () => {
         .then((res: object | any) => {
           setFeed(res.data);
         })
-        .catch((err: any) => {
+        .catch((err: string) => {
           console.log(err);
         });
     };
