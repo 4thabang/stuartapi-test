@@ -35,6 +35,7 @@ const useApi = () => {
           setFeed(res.data);
         })
         .catch((err: string) => {
+          err = "Big Error"
           console.log(err);
         });
     };
