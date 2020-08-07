@@ -40,7 +40,7 @@ const App = () => {
               
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    window.open()
+    window.open(feed.map((e: any) => e.deliveries.tracking_url)
   }
 
   console.log(feed);
