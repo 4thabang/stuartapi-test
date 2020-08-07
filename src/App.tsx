@@ -10,14 +10,6 @@ type ProcessEnv = {
 
 const useApi = () => {
   const [feed, setFeed] = React.useState<object | any>({});
-  const [loading, setLoading] = React.useState<boolean | undefined>(false);
-
-  const handleErrors = (res: object | any) => {
-    if (!res.ok) {
-      throw Error(res.statusText);
-    }
-    return res;
-  };
 
   React.useEffect(() => {
     const postApi = async () => {
