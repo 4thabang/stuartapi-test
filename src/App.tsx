@@ -9,8 +9,8 @@ type ProcessEnv = {
 };
 
 const useApi = () => {
-  const [feed, setFeed] = React.useState<any>({});
-  const [loading, setLoading] = React.useState<any>(false);
+  const [feed, setFeed] = React.useState<object | any>({});
+  const [loading, setLoading] = React.useState<boolean | undefined>(false);
 
   const handleErrors = (res: object | any) => {
     if (!res.ok) {
