@@ -58,15 +58,11 @@ const App = () => {
   return (
     <div className="App">
       <h1>Stuart API</h1>
-      <p>
-        {`Order Status: ${feed.status
-          .charAt(0)
-          .toUpperCase()}${feed.status.slice(1)}`}
-      </p>
-      <p>Distance: {feed.distance}m</p>
-      <hr />
-      {feed.deliveries.map((e: any) => (
+      {data.map((e: any) => (
         <div key={e.id}>
+          <p>{'Order Status: ' + e.status}</p>
+          <p>Distance: {e.distance}m</p>
+          <hr />
           <p>Pickup Status: {e.status}</p>
           <button>Track Order</button>
         </div>
